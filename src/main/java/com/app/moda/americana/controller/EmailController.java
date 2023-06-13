@@ -38,9 +38,12 @@ public class EmailController {
 	@PostMapping("/send-promotion")
 	public String sendPromotion(@ModelAttribute("promotion") Promotion promotion,
 			RedirectAttributes redirectAttributes) {
-		// Cuando este el crud usuarios y demás listo y actualizado con los atributos se
-		// usa un filter (promocion activa)
-		List<String> emails = userService.listAll().stream().map(User::getEmail).collect(Collectors.toList());
+		// Filtra los usuarios con la promoción activa
+		List<String> emails = userService.listAll()
+				.stream()
+				.filter(User::isPromotion)
+				.map(User::getEmail)
+				.collect(Collectors.toList());
 
 		// Valida si no hubo errores
 		try {

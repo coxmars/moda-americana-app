@@ -97,8 +97,8 @@ public class User implements Serializable {
 	@Column(name = "phone_number", length = 20)
 	private String phoneNumber;
 
-
 	private boolean promotion = false;
+	
 	private boolean enabled;
 
 	public Long getId() {
