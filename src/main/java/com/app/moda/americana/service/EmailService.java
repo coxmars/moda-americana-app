@@ -29,7 +29,7 @@ public class EmailService {
 	
 	private final SendGrid sendGrid;
 	String apiKey = System.getenv("SENDGRID_API_KEY");
-	String siteUrl = "";
+	String siteUrl = "https://modaamericana-production.up.railway.app/";
 	
 	
     public EmailService() {
