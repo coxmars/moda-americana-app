@@ -1,0 +1,273 @@
+<!-- HTML -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<!-- HEAD -->
+
+<head th:include="/template_admin.html::headIndex"></head>
+
+<!-- BODY -->
+
+<body id="page-top" class="hidden">
+
+	<!-- SPINNER -->
+	<div th:include="/template_admin.html::spinner"></div>
+
+	<!-- Page Wrapper -->
+	<div id="wrapper">
+
+		<!-- SIDEBAR -->
+		<div th:include="/template_admin.html::sidebar"></div>
+
+		<!-- Content Wrapper -->
+		<div id="content-wrapper" class="d-flex flex-column">
+
+			<!-- TOAST -->
+			<div th:include="/template_admin.html::toostWelcome"></div>
+
+			<!-- Main Content -->
+			<div id="content">
+
+				<!-- HEADER -->
+				<div th:include="/template_admin.html::header"></div>
+
+				<!-- Begin Page Content -->
+				<div class="container-fluid">
+
+					<!-- Page Heading -->
+					<div class="d-sm-flex align-items-center justify-content-between mb-4">
+						<h1 class="h3 mb-0 text-gray-800">Estadísticas</h1>
+					</div>
+
+					<!-- Content Row -->
+					<div class="row">
+
+						<!-- Earnings (Monthly) Card Example -->
+						<div class="col-xl-3 col-md-6 mb-4" data-aos="flip-down">
+							<div class="card border-left-danger shadow h-100 py-2">
+								<div class="card-body">
+									<div class="row no-gutters align-items-center">
+										<div class="col mr-2">
+											<div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+												Ventas de Hoy</div>
+											<div class="h5 mb-0 font-weight-bold text-gray-800">
+												₡<span id="day_sales"></span></div>
+											<br>
+											<div class="text-xs font-weight-bold text-black-50 text-uppercase mb-1">
+												<span id="dateD"></span>
+											</div>
+										</div>
+										<div class="col-auto">
+											<i class="fa-solid fa-sack-dollar fa-2x text-gray-300"></i>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- Earnings (Monthly) Card Example -->
+						<div class="col-xl-3 col-md-6 mb-4" data-aos="flip-down">
+							<div class="card border-left-primary shadow h-100 py-2">
+								<div class="card-body">
+									<div class="row no-gutters align-items-center">
+										<div class="col mr-2">
+											<div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+												Total Ventas 1era Quincena</div>
+											<div class="h5 mb-0 font-weight-bold text-gray-800">
+												₡<span id="first_fortnight"></span></div>
+											<br>
+											<div class="text-xs font-weight-bold text-black-50 text-uppercase mb-1">
+												01/<span class="info_month"></span>/<span class="info_year"></span> -
+												15/<span class="info_month"></span>/<span class="info_year"></span>
+											</div>
+										</div>
+										<div class="col-auto">
+											<i class="fa-solid fa-sack-dollar fa-2x text-gray-300"></i>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- Earnings (Monthly) Card Example -->
+						<div class="col-xl-3 col-md-6 mb-4" data-aos="flip-down">
+							<div class="card border-left-success shadow h-100 py-2">
+								<div class="card-body">
+									<div class="row no-gutters align-items-center">
+										<div class="col mr-2">
+											<div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+												Total Ventas 2nda Quincena</div>
+											<div class="h5 mb-0 font-weight-bold text-gray-800">
+												₡<span id="second_fortnight"></span></div>
+											<br>
+											<div class="text-xs font-weight-bold text-black-50 text-uppercase mb-1">
+												16/<span class="info_month"></span>/<span class="info_year"></span> -
+												31/<span class="info_month"></span>/<span class="info_year"></span>
+											</div>
+										</div>
+										<div class="col-auto">
+											<i class="fa-solid fa-sack-dollar fa-2x text-gray-300"></i>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- Earnings (Monthly) Card Example -->
+						<div class="col-xl-3 col-md-6 mb-4" data-aos="flip-down">
+							<div class="card border-left-info shadow h-100 py-2">
+								<div class="card-body">
+									<div class="row no-gutters align-items-center">
+										<div class="col mr-2">
+											<div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+												Total Ventas Mes</div>
+											<div class="h5 mb-0 font-weight-bold text-gray-800">
+												₡<span id="month_sales"></span></div>
+											<br>
+											<div class="text-xs font-weight-bold text-black-50 text-uppercase mb-1">
+												<span id="month"></span>
+											</div>
+										</div>
+										<div class="col-auto">
+											<i class="fa-solid fa-sack-dollar fa-2x text-gray-300"></i>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- CHARTS -->
+
+						<!-- Content Row -->
+						<div class="row">
+
+							<!-- Pie Chart USERS -->
+							<div class="col-xl-5 col-lg-5" data-aos="zoom-in-up">
+								<div class="card shadow mb-4" data-aos="zoom-in-up">
+									<!-- Card Header - Dropdown -->
+									<div
+										class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+										<h6 class="m-0 font-weight-bold text-primary">Usuarios</h6>
+										<div class="dropdown no-arrow">
+											<a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+												data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> </a>
+										</div>
+									</div>
+									<!-- Card Body -->
+									<div class="card-body">
+										<div class="chart-pie pt-4 pb-2">
+											<canvas id="users"></canvas>
+										</div>
+										<div class="mt-4 text-center small">
+											<span class="mr-2"> <i class="fas fa-circle" style="color: #FFB100;"></i>
+												Hombre
+											</span> <span class="mr-2"> <i class="fas fa-circle"
+													style="color: #AEE0C5;"></i> Mujer
+											</span>
+										</div>
+										<hr>
+										Cantidad de Hombres y Mujeres
+										<code class="d-none">/js/demo/chart-bar-demo.js</code>
+									</div>
+								</div>
+							</div>
+
+							<!-- Bar Chart CATEGORY -->
+							<div class="col-xl-7 col-lg-7" data-aos="zoom-in-up">
+								<div class="card shadow mb-4" data-aos="zoom-in-up">
+									<div class="card-header py-3">
+										<h6 class="m-0 font-weight-bold text-primary">Categorías</h6>
+									</div>
+									<div class="card-body">
+										<div class="chart-bar">
+											<canvas id="category"></canvas>
+										</div>
+										<hr>
+										Cantidad de Prendas por Categoría
+										<code class="d-none">/js/demo/chart-bar-demo.js</code>
+									</div>
+								</div>
+							</div>
+
+							<!-- Bar Char PROVIDERS -->
+							<div class="col-xl-7 col-lg-7" data-aos="zoom-in-up">
+								<div class="card shadow mb-4" data-aos="zoom-in-up">
+									<div class="card-header py-3">
+										<h6 class="m-0 font-weight-bold text-primary">Proveedores</h6>
+									</div>
+									<div class="card-body">
+										<div class="chart-bar">
+											<canvas id="provider"></canvas>
+										</div>
+										<hr>
+										Cantidad de Pacas Compradas
+										<code class="d-none">/js/demo/chart-bar-demo.js</code>
+									</div>
+								</div>
+							</div>
+
+							<!-- Bar Chart USERS -->
+							<div class="col-xl-5 col-lg-7" data-aos="zoom-in-up">
+								<div class="card shadow mb-4" data-aos="zoom-in-up">
+									<div class="card-header py-3">
+										<h6 class="m-0 font-weight-bold text-primary">Usuarios</h6>
+									</div>
+									<div class="card-body">
+										<div class="chart-bar">
+											<canvas id="usersC"></canvas>
+										</div>
+										<hr>
+										Cantidad de Compras Realizadas
+										<code class="d-none">/js/demo/chart-bar-demo.js</code>
+									</div>
+								</div>
+							</div>
+
+						</div>
+
+					</div>
+					<!-- /.container-fluid -->
+
+				</div>
+				<!-- End of Main Content -->
+
+				<!-- FOOTER -->
+				<div th:include="/template_admin.html::footer"></div>
+
+			</div>
+			<!-- End of Content Wrapper -->
+
+		</div>
+		<!-- End of Page Wrapper -->
+
+		<!-- Scroll to Top Button-->
+		<a class="scroll-to-top rounded" href="#page-top"> <i class="fas fa-angle-up"></i>
+		</a>
+
+		<script th:inline="javascript">
+		
+			/* Variable para el grafico usuarios por genero */
+			var usersByGender = /*[[${usersByGender}]]*/ null;
+			
+			/* Variables para el grafico cantidad productos por categoria */
+			var categories = /*[[${categories}]]*/ null;
+			var quantities = /*[[${quantities}]]*/ null;
+			
+			/* Variable para el grafico productos comprados por proveedor */
+			var providers = /*[[${providers}]]*/ null;
+			var baleQuantities = /*[[${baleQuantities}]]*/ null;
+			
+		</script>
+
+		<!-- SCRPIPTS -->
+		<div th:include="/template_admin.html::scriptsIndex"></div>
+
+		<script>
+			$(document).ready(function () {
+				$('#toastWelcome').toast('show')
+
+			});
+		</script>
+</body>
+
+</html>

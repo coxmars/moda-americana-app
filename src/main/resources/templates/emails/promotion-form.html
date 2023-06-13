@@ -1,0 +1,138 @@
+<!-- HTML -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<!-- HEAD -->
+
+<head th:include="/template_admin.html::headIndex"></head>
+
+<!-- BODY -->
+
+<body id="page-top">
+
+	<!-- SPINNER -->
+	<div th:include="/template_admin.html::spinner"></div>
+
+	<!-- Page Wrapper -->
+	<div id="wrapper">
+
+		<!-- SIDEBAR -->
+		<div th:include="/template_admin.html::sidebar"></div>
+
+		<!-- Content Wrapper -->
+		<div id="content-wrapper" class="d-flex flex-column">
+
+			<!-- TOAST -->
+			<div th:include="/template_admin.html::toostSend"></div>
+			<div th:include="/template_admin.html::toostError"></div>
+
+			<p class="d-none" th:text="${state}" id="m"></p>
+
+			<!-- Main Content -->
+			<div id="content">
+
+				<!-- HEADER -->
+				<div th:include="/template_admin.html::header"></div>
+
+				<!-- Begin Page Content -->
+				<div class="container-fluid">
+
+					<!-- Page Heading -->
+					<h1 class="h3 mb-2 text-gray-800">E-mail</h1>
+					<!-- ! CAMBIAR -->
+
+					<!-- DataTales Example -->
+					<div class="card shadow mb-4" data-aos="zoom-in-up">
+						<div class="card-header py-3">
+							<h6 class="m-0 font-weight-bold text-primary">Enviar E-mails</h6>
+							<!-- ! CAMBIAR -->
+
+							<a th:href="@{/dash}" class="btn btn-outline-dark my-2">Regresar</a>
+						</div>
+
+						<div class="card-body pdInput">
+							<form th:action="@{/email/send-promotion}" th:object="${promotion}" method="post"
+								class="user row">
+								<div class="col-12">
+									<label class="custom-control" for="customCheck">Asunto
+										<span style="color: red;">*</span>
+									</label>
+									<div class="form-group">
+										<input type="text" class="form-control" id="exampleInputAsunto"
+											aria-describedby="emailHelp" th:field="*{subject}"
+											placeholder="Promoción este Viernes" required maxlength="50" minlength="5">
+									</div>
+								</div>
+
+								<div class="col-12">
+									<label class="custom-control" for="customCheck">Descripción
+										<span style="color: red;">*</span>
+									</label>
+									<div class="form-group">
+										<textarea type="text" class="form-control" id="exampleInputDescripcion"
+											aria-describedby="emailHelp" th:field="*{description}"
+											placeholder="Tenemos promociones en todas las pacas de..." maxlength="100"
+											minlength="10" required></textarea>
+									</div>
+								</div>
+
+								<button type="submit" class="btn btn-user btn-outline-success w-100">Enviar</button>
+							</form>
+						</div>
+
+					</div>
+
+				</div>
+				<!-- /.container-fluid -->
+
+			</div>
+			<!-- End of Main Content -->
+
+			<!-- FOOTER -->
+			<div th:include="/template_admin.html::footer"></div>
+
+		</div>
+		<!-- End of Content Wrapper -->
+
+	</div>
+	<!-- End of Page Wrapper -->
+
+	<!-- Scroll to Top Button-->
+	<a class="scroll-to-top rounded" href="#page-top"> <i class="fas fa-angle-up"></i>
+	</a>
+
+	<!-- Logout Modal-->
+	<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">�Seguro que
+						Desea Eliminarlo?</h5>
+					<button class="close" type="button" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">�</span>
+					</button>
+				</div>
+				<div class="modal-body">Est�s apunto de borrar un Usuario</div>
+				<!-- !meter id -->
+				<div class="modal-footer">
+					<button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+					<a class="btn btn-primary" href="login.html">Aceptar</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- SCRPIPTS -->
+	<div th:include="/template_admin.html::scripts"></div>
+
+	<script>
+		AOS.init({
+			offset: -500,
+			once: true
+		});
+	</script>
+
+</body>
+
+</html>

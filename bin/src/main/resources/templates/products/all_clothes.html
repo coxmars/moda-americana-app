@@ -1,0 +1,187 @@
+<!-- HTML -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<!-- HEAD -->
+
+<head th:include="/template_admin.html::headWelcome"></head>
+
+<!-- BODY -->
+
+
+<body style="min-height: 100vh;" class="hidden bg-black">
+
+	<!-- SPINNER -->
+	<div th:include="/template_admin.html::spinner"></div>
+
+	<nav data-aos="fade-right" class="navbar navbar-expand-lg hiddenNav" style="top: 0 !important; position: relative;"
+		id="nav">
+		<div class="container">
+
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+				aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse " id="navbarNav">
+				<ul class="navbar-nav ms-auto ">
+					<li class="nav-item"><a class="nav-link" th:href="@{/}">[[#{li.Home}]]</a>
+					</li>
+
+					<li class="nav-item ms-3"><a class="nav-link custom-btn custom-border-btn custom-btn-bg-white btn"
+							th:href="@{/login}">[[#{li.Iniciar.Sesion}]]</a></li>
+
+					<li class="nav-item ms-3"><a class="nav-link custom-btn custom-border-btn custom-btn-bg-white btn"
+							th:href="@{/register}">[[#{li.Registrarse}]]</a></li>
+
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<main class="container-fluid bg-white h-auto" style="min-height: 90vh !important;">
+		<section class="services-section section-padding section-bg py-0" id="services-section"
+			style="background-color: #F8F8F8 !important;">
+			<div class="container-fluid">
+				<div class="row">
+
+					<div class="col-lg-12 col-12" id="productos">
+						<h2 class="my-4 ml-4" style="margin-left: 5rem;">[[#{h2.Productos}]]</h2>
+					</div>
+					<!-- PRENDA -->
+					<div class="container">
+						<div class="row">
+							<div th:each="product : ${products}" class="col-12 col-sm-6">
+								<div class="col-lg-12 col-12" style="margin-bottom: 20px;" data-aos="fade-up">
+									<div class="services-thumb mb-lg-0 shadow-sm">
+										<div class="row">
+											<div class="col-lg-5 col-md-5 col-12">
+												<div class="services-image-wrap">
+													<img src="./img/prenda3.png" class="services-image img-fluid"
+														alt="imagen prenda">
+
+													<div class="services-icon-wrap">
+														<div class="d-flex justify-content-end align-items-center">
+															<p class="text-white mb-0 text-right">₡
+															<p class="text-white mb-0 text-right"
+																th:text="${product.unitPrice}">
+																<i class="bi-cash me-2"></i>
+															</p>
+															</p>
+														</div>
+													</div>
+												</div>
+											</div>
+
+											<div class="col-lg-7 col-md-7 col-12 d-flex align-items-center">
+												<div class="services-info mt-4 mt-lg-0 mt-md-0">
+													<h4 class="services-title mb-1 mb-lg-2">
+														<a style="color: #6799A3;" th:text="${product.productName}"></a>
+													</h4>
+
+													<p th:text="${product.productDescription}"></p>
+
+													<div class="d-flex flex-wrap align-items-center"></div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- PRENDA -->
+				</div>
+		</section>
+	</main>
+
+	<footer class="site-footer">
+		<div class="container">
+			<div class="row">
+
+				<div class="col-lg-12 col-12 d-flex align-items-center mb-4 pb-2">
+					<div>
+						<img src="./img/logo.jpg" class="logo img-fluid" alt="">
+					</div>
+
+					<ul class="footer-menu d-flex flex-wrap ms-5">
+						<li class="footer-menu-item"><a th:href="@{#}" class="footer-menu-link">Home</a></li>
+
+						<li class="footer-menu-item"><a th:href="@{#intro-section}"
+								class="footer-menu-link">[[#{footer.Nosotros}]]</a></li>
+
+						<li class="footer-menu-item"><a th:href="@{#productos}"
+								class="footer-menu-link">[[#{footer.Productos}]]</a></li>
+
+						<li class="footer-menu-item"><a th:href="@{/form_contact}"
+								class="footer-menu-link">[[#{footer.Contacto}]]</a></li>
+					</ul>
+				</div>
+
+				<div class="contenedorFooterInfo" data-aos="fade-right">
+
+					<div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0 mb-md-0">
+						<h5 class="colorAmarillo site-footer-title mb-3">[[#{h5.Tienda}]]</h5>
+
+						<p class="text-white d-flex mt-3 mb-2">
+							<i class="bi-geo-alt-fill me-2"></i> Costa Rica, Puntarenas,
+							Monteverde, Centro Comercial
+						</p>
+
+						<p class="text-white d-flex mb-2">
+							<i class="bi-telephone-fill me-2"></i> <a href="tel: 110-220-9800" class="site-footer-link">
+								8734-1275
+							</a>
+						</p>
+
+						<ul class="social-icon mt-4">
+
+							<li class="social-icon-item"><a
+									href="https://www.facebook.com/profile.php?id=100063619537678"
+									class="social-icon-link button button--skoll"> <span></span>
+									<span class="bi-facebook"></span>
+								</a></li>
+
+							<li class="social-icon-item"><a href="https://wa.me/+50687341275"
+									class="social-icon-link button button--skoll"> <span></span>
+									<span class="bi-whatsapp"></span>
+								</a></li>
+						</ul>
+					</div>
+
+					<div class="col-lg-3 col-md-6 col-6 mt-3 mt-lg-0 mt-md-0" data-aos="zoom-in-up">
+						<div class="featured-block">
+							<h5 class="colorAmarillo text-white mb-3">[[#{h5.Horario.Servicio}]]</h5>
+
+							<strong class="d-block text-white mb-1">[[#{strong.LapsodeDias}]]</strong>
+
+							<p class="text-white mb-3">11:00 AM - 7:00 PM</p>
+
+							<strong class="d-block text-white mb-1">[[#{strong.Domingos}]]</strong>
+
+							<p class="text-white mb-0">11:00 AM - 5:30 PM</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="site-footer-bottom">
+			<div class="container">
+				<div class="row">
+					<div class="container my-auto">
+						<div class="copyright text-center my-auto">
+							<span>Copyright &copy; Moda Americana - <span id="rights"></span></span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<!-- SCRPIPTS -->
+	<div th:include="/template_admin.html::scriptsWelcome"></div>
+
+</body>
+
+</html>

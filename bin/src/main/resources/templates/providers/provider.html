@@ -1,0 +1,148 @@
+<!-- HTML -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<!-- HEAD -->
+
+<head th:include="/template_admin.html::headIndex"></head>
+
+<!-- BODY -->
+
+<body id="page-top">
+
+	<!-- SPINNER -->
+	<div th:include="/template_admin.html::spinner"></div>
+
+	<!-- Page Wrapper -->
+	<div id="wrapper">
+
+		<!-- SIDEBAR -->
+		<div th:include="/template_admin.html::sidebar"></div>
+
+		<!-- Content Wrapper -->
+		<div id="content-wrapper" class="d-flex flex-column">
+
+			<!-- TOAST -->
+			<div th:include="/template_admin.html::toostCreate"></div>
+			<div th:include="/template_admin.html::toostDelete"></div>
+			<div th:include="/template_admin.html::toostError"></div>
+
+			<p class="d-none" th:text="${state}" id="m"></p>
+
+			<!-- Main Content -->
+			<div id="content">
+
+				<!-- HEADER -->
+				<div th:include="/template_admin.html::header"></div>
+
+				<!-- Begin Page Content -->
+				<div class="container-fluid">
+
+					<!-- Page Heading -->
+					<h1 class="h3 mb-2 text-gray-800">Proveedores</h1>
+					<!-- ! CAMBIAR -->
+
+					<!-- DataTales Example -->
+					<div class="card shadow mb-4" data-aos="zoom-in-up">
+						<div class="card-header py-3">
+							<h6 class="m-0 font-weight-bold text-primary">Proveedores
+								Registrados</h6>
+							<a th:href="@{/provider/new}" class="btn btn-outline-success my-2">Nuevo</a>
+						</div>
+						<div class="card-body">
+							<div class="table-responsive">
+								<table class="table table-bordered" id="dataTableProvider" width="100%" cellspacing="0">
+									<thead>
+										<tr>
+											<th>#</th>
+											<th>Nombre</th>
+											<th>Correo</th>
+											<th>Tel�fono</th>
+											<th>Fecha</th>
+											<th>Editar</th>
+											<th>Borrar</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr th:each="provider : ${providers}">
+											<td th:text="${provider.providerId}"></td>
+											<td th:text="${provider.providerName}"></td>
+											<td th:text="${provider.providerEmail}"></td>
+											<td th:text="${provider.providerPhoneNumber}"></td>
+											<td th:text="${provider.dateProvider}"></td>
+											<td>
+												<a th:href="@{/provider/modify/}+${provider.providerId}"
+													class="btn btn-outline-primary w-100"><i
+														class="fa-solid fa-pen-to-square"></i></a>
+											</td>
+											<td>
+												<a data-target="#deleteModal" th:href="@{#}" data-toggle="modal"
+													th:attr="data-provider-id=${provider.providerId}"
+													class="btn btn-outline-danger w-100">
+
+													<i class="fa-solid fa-trash"></i>
+												</a>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+
+				</div>
+				<!-- /.container-fluid -->
+
+			</div>
+			<!-- End of Main Content -->
+
+			<!-- FOOTER -->
+			<div th:include="/template_admin.html::footer"></div>
+
+		</div>
+		<!-- End of Content Wrapper -->
+
+	</div>
+	<!-- End of Page Wrapper -->
+
+	<!-- Scroll to Top Button-->
+	<a class="scroll-to-top rounded" href="#page-top"> <i class="fas fa-angle-up"></i>
+	</a>
+
+	<!-- Delete Modal-->
+	<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">¿Seguro que
+						Desea Eliminarlo?</h5>
+					<button class="close" type="button" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">×</span>
+					</button>
+				</div>
+				<div class="modal-body">Estás apunto de borrar un Proveedor</div>
+				<!-- !meter id -->
+				<div class="modal-footer">
+					<button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+					<a class="btn btn-primary" id="deleteLink">Aceptar</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- SCRPIPTS -->
+	<div th:include="/template_admin.html::scripts"></div>
+
+	<script src="/js/delete_modal/delete_provider.js"></script>
+
+	<script>
+		AOS.init({
+			offset: -500,
+			once: true
+		});
+	</script>
+
+</body>
+
+</html>

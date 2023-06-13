@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+
+<!-- ------------------------------------------------------------------------------------------------------- -->
+<!-- TEMPLATE HEAD -->
+
+<head th:fragment="head">
+
+	<!--<meta charset="ISO-8859-1">-->
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<title>Moda Americana - Login</title>
+
+	<!-- icon page -->
+	<link rel="shortcut icon" href="/img/logo.jpg" type="favicon/ico" />
+
+	<!-- Custom fonts for this template-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+	<script src="/vendor/jquery/jquery.min.js"></script>
+	<link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+	<link
+		href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+		rel="stylesheet">
+
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+	<link rel="stylesheet" href="./css/scroll.css">
+
+</head>
+
+
+
+<!-- ------------------------------------------------------------------------------------------------------- -->
+<!-- TEMPLATE HEAD INDEX -->
+
+<head th:fragment="headIndex">
+
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<title>Moda Americana | Admin</title>
+
+	<!-- icon page -->
+	<link rel="shortcut icon" href="/img/logo.jpg" type="favicon/ico" />
+
+	<!-- Custom scripts for all pages-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+	<script src="/vendor/jquery/jquery.min.js"></script>
+	<script src="/js/sb-admin-2.min.js"></script>
+	<script src="/js/sb-admin-2.js"></script>
+
+	<!-- Custom fonts for this template-->
+	<link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="/text/css">
+	<script src="https://kit.fontawesome.com/fe4e860efc.js" crossorigin="anonymous"></script>
+	<link
+		href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+		rel="stylesheet">
+
+	<script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
+	<script src="/vendor/jquery/jquery.min.js"></script>
+
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+	<!-- Custom styles for this template-->
+	<link href="/css/sb-admin-2.min.css" rel="stylesheet">
+	
+
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+</head>
+
+
+
+<!-- ------------------------------------------------------------------------------------------------------- -->
+<!-- TEMPLATE HEAD WELCOME -->
+
+<head th:fragment="headWelcome">
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<title>Bienvenida</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+	<script src="/js/jquery.min.js"></script>
+
+	<script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
+	<script src="/vendor/jquery/jquery.min.js"></script>
+
+	<!-- icon page -->
+	<link rel="shortcut icon" href="/img/logo.jpg" type="favicon/ico" />
+
+	<!-- CSS FILES -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,700;1,400&display=swap"
+		rel="stylesheet">
+
+	<link href="/css/bootstrap.min.css" rel="stylesheet">
+
+	<link href="/css/bootstrap-icons.css" rel="stylesheet">
+
+	<link href="/css/tooplate-clean-work.css" rel="stylesheet">
+
+	<link rel="stylesheet" href="./css/bienvenida.css">
+
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+	<script src="https://kit.fontawesome.com/fe4e860efc.js" crossorigin="anonymous"></script>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
+
+	</script>
+	<link rel="stylesheet" href="./css/scroll.css">
+</head>
+
+
+
+<!-- ------------------------------------------------------------------------------------------------------- -->
+<!-- TEMPLATE SCRIPTS -->
+<div th:fragment="scripts">
+	<!-- Core plugin JavaScript-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+	<script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
+	<script src="/vendor/jquery/jquery.min.js"></script>
+
+	<!-- JAVASCRIPT FILES -->
+	<script src="/js/jquery.backstretch.min.js"></script>
+	<script src="/js/counter.js"></script>
+	<script src="/js/countdown.js"></script>
+	<script src="/js/modernizr.js"></script>
+	<script src="/js/animated-headline.js"></script>
+	<script src="/js/custom.js"></script>
+	<script src="/js/loading.js"></script>
+	<script src="/js/getDate.js"></script>
+	<script src="/js/toast.js"></script>
+
+
+	<!-- Bootstrap core JavaScript-->
+	<script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+	<!-- Custom scripts for all pages-->
+	<script src="/js/sb-admin-2.min.js"></script>
+
+	<!-- Animaciones -->
+	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+	<script>
+		AOS.init({
+			offset: -500,
+			once: true
+		});
+	</script>
+
+	<!-- Custom styles for this template-->
+	<link href="/css/sb-admin-2.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap5.min.css">
+	<link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css">
+
+	<script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+		integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+		crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.min.js"
+		integrity="sha384-5h4UG+6GOuV9qXh6HqOLwZMY4mnLPraeTrjT5v07o347pj6IkfuoASuGBhfDsp3d"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.0.2/dist/sweetalert2.all.min.js"></script>
+	<script type="text/javascript" language="javascript"
+		src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" language="javascript"
+		src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap5.min.js"></script>
+
+	<!-- Buttons -->
+	<script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.bootstrap5.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/datatables-buttons-excel-styles@1.2.0/js/buttons.html5.styles.min.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/datatables-buttons-excel-styles@1.2.0/js/buttons.html5.styles.templates.min.js"></script>
+	<!-- Responsive css datatables -->
+	<script type="text/javascript"
+		src="https://cdn.datatables.net/responsive/2.3.0/js/dataTables.responsive.min.js"></script>
+
+	<script src="/js/datatables/datatable_category.js"></script>
+	<script src="/js/datatables/datatable_contact.js"></script>
+	<script src="/js/datatables/datatable_paca.js"></script>
+	<script src="/js/datatables/datatable_provider.js"></script>
+	<script src="/js/datatables/datatable_user.js"></script>
+	<script src="/js/datatables/datatable_unitary_clothing.js"></script>
+
+</div>
+
+<!-- ------------------------------------------------------------------------------------------------------- -->
+<!-- TEMPLATE SCRIPTS -->
+<div th:fragment="scriptsWelcome">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+	<!-- Core plugin JavaScript-->
+	<script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
+	<script src="/vendor/jquery/jquery.min.js"></script>
+
+	<!-- JAVASCRIPT FILES -->
+	<script src="/js/jquery.backstretch.min.js"></script>
+	<script src="/js/counter.js"></script>
+	<script src="/js/countdown.js"></script>
+	<script src="/js/modernizr.js"></script>
+	<script src="/js/animated-headline.js"></script>
+	<script src="/js/custom.js"></script>
+	<script src="/js/loading.js"></script>
+	<script src="/js/getDate.js"></script>
+	<script src="/js/validates/validates.js"></script>
+
+	<!-- Bootstrap core JavaScript-->
+	<script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+	<!-- Custom scripts for all pages-->
+	<script src="/js/sb-admin-2.min.js"></script>
+
+	<!-- Animaciones -->
+	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+	<script>
+		AOS.init({
+			offset: -500,
+			once: true
+		});
+	</script>
+</div>
+
+
+<!-- ------------------------------------------------------------------------------------------------------- -->
+<!-- TEMPLATE SCRIPTS INDEX -->
+<div th:fragment="scriptsIndex">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+	<!-- Bootstrap core JavaScript-->
+	<script src="/vendor/jquery/jquery.min.js"></script>
+	<script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+	<!-- Custom scripts for all pages-->
+	<script src="/js/sb-admin-2.min.js"></script>
+	<script src="/js/sb-admin-2.js"></script>
+
+	<!-- Core plugin JavaScript-->
+	<script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+	<script src="/js/getDate.js"></script>
+
+	<!-- Bootstrap core JavaScript-->
+	<script src="https://code.jquery.com/jquery-3.6.3.js"
+		integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+		crossorigin="anonymous"></script>
+
+	<!-- Core plugin JavaScript-->
+	<script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+	<!-- Custom scripts for all pages-->
+	<script src="/js/sb-admin-2.min.js"></script>
+
+	<!-- Animaciones -->
+	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+	<script>
+		AOS.init({
+			offset: -500,
+			once: true
+		});
+	</script>
+</div>
+
+
+
+<!-- ------------------------------------------------------------------------------------------------------- -->
+<!-- TEMPLATE SPINNER -->
+<div th:fragment="spinner">
+	<div class="centrado" id="onload">
+		<div class="lds-ellipsis">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+	</div>
+</div>
+
+
+
+<!-- ------------------------------------------------------------------------------------------------------- -->
+<!-- TEMPLATE SIDEBAR -->
+<div th:fragment="sidebar">
+	<!-- Sidebar -->
+	<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion h-100" id="accordionSidebar">
+
+		<!-- Sidebar - Brand -->
+		<a data-aos="fade-down-right" class="sidebar-brand d-flex align-items-center justify-content-center"
+			th:href="@{/dash}">
+			<div class="iconShirt sidebar-brand-icon rotate-n-15 animate__headShake animate__infinite	infinite">
+				<i class="fa-solid fa-shirt"></i>
+			</div>
+			<div class="sidebar-brand-text mx-3">Moda Americana</div>
+		</a>
+
+		<!-- Divider -->
+		<hr class="sidebar-divider my-0">
+
+		<!-- Nav Item - Dashboard -->
+		<li th:class="${currentPage == 'dash' ? 'active nav-item' : 'nav-item'}"><a class="nav-link" th:href="@{/dash}"
+				data-aos="zoom-in-up"> <i class="fas fa-fw fa-tachometer-alt"></i> <span>Estadísticas</span></a></li>
+
+		<!-- Divider -->
+		<hr class="sidebar-divider">
+
+		<!-- Heading -->
+		<div class="sidebar-heading">Administrar</div>
+
+		<!-- Nav Item - Pages Collapse Menu -->
+		<li
+			th:class="${currentPage == 'paca' || currentPage == 'category' || currentPage == 'unitary' ? 'active nav-item' : 'nav-item'}">
+			<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+				aria-expanded="true" aria-controls="collapseTwo"> <i class="fa-solid fa-warehouse"></i>
+				<span>Inventario</span>
+			</a>
+			<div id="collapseTwo"
+				th:class="${currentPage == 'paca' || currentPage == 'category' || currentPage == 'unitary' ? 'collapse show' : 'collapse'}"
+				aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+				<div class="bg-white py-2 collapse-inner rounded">
+					<h6 class="collapse-header">Opciones</h6>
+					<a th:class="${currentPage == 'paca' ? 'active collapse-item' : 'collapse-item'}"
+						th:href="@{/product/all/pacas}">Pacas</a>
+					<a th:class="${currentPage == 'unitary' ? 'active collapse-item' : 'collapse-item'}"
+						th:href="@{/product/all/unitary}">Prendas
+						Unitarias</a> <a
+						th:class="${currentPage == 'category' ? 'active collapse-item' : 'collapse-item'}"
+						th:href="@{/category}">Categorias</a>
+				</div>
+			</div>
+		</li>
+
+		<!-- Nav Item - Utilities Collapse Menu -->
+		<li th:class="${currentPage == 'user' ? 'active nav-item' : 'nav-item'}" data-aos="fade-right"><a
+				class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+				aria-expanded="true" aria-controls="collapseUtilities"> <i class="fa-solid fa-user"></i>
+				<span>Usuarios</span>
+			</a>
+			<div id="collapseUtilities" th:class="${currentPage == 'user' ? 'collapse show' : 'collapse'}"
+				style="z-index: 10" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+				<div class="bg-white py-2 collapse-inner rounded">
+					<h6 class="collapse-header">Opciones</h6>
+					<a th:class="${currentPage == 'user' ? 'active collapse-item' : 'collapse-item'}"
+						th:href="@{/users}">Ver</a> <a class="collapse-item" th:href="@{/new_user}">Agregar</a>
+				</div>
+			</div>
+		</li>
+
+		<!-- Nav Item - Utilities Collapse Menu -->
+		<li th:class="${currentPage == 'provider' || currentPage == 'providerNew' ? 'active nav-item' : 'nav-item'}"
+			data-aos="fade-right"><a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#proveedor"
+				aria-expanded="true" aria-controls="proveedor"> <i class="fa-solid fa-truck-field"></i>
+				<span>Proveedores</span>
+			</a>
+			<div id="proveedor"
+				th:class="${currentPage == 'provider' || currentPage == 'providerNew' ? 'collapse show' : 'collapse'}"
+				aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+				<div class="bg-white py-2 collapse-inner rounded">
+					<h6 class="collapse-header">Opciones</h6>
+					<a th:class="${currentPage == 'provider' ? 'active collapse-item' : 'collapse-item'}"
+						th:href="@{/provider/all}">Ver</a> <a
+						th:class="${currentPage == 'providerNew' ? 'active collapse-item' : 'collapse-item'}"
+						th:href="@{/provider/new}">Agregar</a>
+				</div>
+			</div>
+		</li>
+
+		<!-- Divider -->
+		<hr class="sidebar-divider d-none d-md-block">
+
+		<!-- Sidebar Toggler (Sidebar) -->
+		<div class="text-center d-none d-md-inline">
+			<button class="rounded-circle border-0" id="sidebarToggle"></button>
+		</div>
+
+	</ul>
+</div>
+
+
+
+<!-- ------------------------------------------------------------------------------------------------------- -->
+<!-- TEMPLATE HEADER -->
+<div th:fragment="header">
+	<!-- Topbar -->
+	<nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+		<!-- Sidebar Toggle (Topbar) -->
+		<button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+			<i class="fa fa-bars"></i>
+		</button>
+
+		<div class="d-flex flex-column gap-4">
+			<p data-aos="fade-right" id="date"
+				style="margin: 0 !important; font-style: italic !important; font-weight: 700 !important; font-size: 13px !important;">
+			</p>
+
+			<p data-aos="fade-right" id="time"
+				style="margin: 0 !important; font-style: italic !important; font-weight: 700 !important; font-size: 13px !important;">
+			</p>
+		</div>
+
+		<!-- Topbar Navbar -->
+		<ul class="navbar-nav ml-auto">
+
+			<!-- Nav Item - Messages -->
+			<li class="nav-item dropdown no-arrow mx-1 "><a class="nav-link dropdown-toggle" th:href="@{/contact/all}"
+					id="messagesDropdown"> <i class="fas fa-envelope fa-fw"></i>
+				</a> <!-- Dropdown - Messages -->
+				<div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+					aria-labelledby="messagesDropdown"></div>
+			</li>
+
+			<div class="topbar-divider d-none d-sm-block"></div>
+
+			<!-- Nav Item - User Information -->
+			<li class="nav-item dropdown no-arrow"><a class="nav-link dropdown-toggle" href="#" id="userDropdown"
+					role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <b><span
+							class="mr-2 d-none d-lg-inline text-gray-600 small text-uppercase"
+							th:text="${name}"></span></b> <img class="img-profile rounded-circle"
+						src="/img/undraw_profile.svg">
+				</a> <!-- Dropdown - User Information -->
+				<div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+					<a class="dropdown-item" th:href="@{/my_profile/{id}(id=${#authentication.getPrincipal().getUser().getId()})}"> <i
+							class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>Perfil
+					</a>
+					<a class="dropdown-item" th:href="@{/email/send-promotion}"> <i
+							class="fa-sharp fa-solid fa-paper-plane text-gray-400 mr-2"></i>
+						E-mails
+					</a>
+					<div class="dropdown-divider"></div>
+					<a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal"> <i
+							class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+						Cerrar Sesión
+					</a>
+				</div>
+			</li>
+
+		</ul>
+
+	</nav>
+	<!-- End of Topbar -->
+
+	<!-- Logout Modal-->
+	<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Desea Cerrar
+						Sesión</h5>
+					<button class="close" type="button" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">×</span>
+					</button>
+				</div>
+				<div class="modal-body">Estás apunto de Cerrar Sesión</div>
+				<div class="modal-footer">
+					<form class="mt-4" th:action="@{/logout}" method="post">
+						<button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+						<input class="btn btn-primary" type="submit" value="Cerrar Sesión" />
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!-- ------------------------------------------------------------------------------------------------------- -->
+<!-- TEMPLATE FOOTER -->
+<div th:fragment="footer">
+	<footer class="sticky-footer bg-white">
+		<div class="container my-auto">
+			<div class="copyright text-center my-auto">
+				<span>Copyright &copy; Moda Americana - <span id="rights"></span></span>
+			</div>
+		</div>
+	</footer>
+</div>
+
+<!-- ------------------------------------------------------------------------------------------------------- -->
+<!-- TEMPLATE TOASTR CREATE -->
+<div th:fragment="toostCreate">
+	<!-- TOASTR -->
+	<div id="toastCreate" class="toast text-white shadow-lg" role="alert" aria-live="assertive" aria-atomic="true"
+		style="position: absolute; z-index: 100; right: 3%; top: 12%; color: #4AAD91;">
+		<div data-aos="fade-right" class="toast-header text-white p-3"
+			style="background-color: #145342; border-radius: 5px;">
+			<i data-aos="fade-down" class="fa-solid fa-floppy-disk rounded mr-2 fs-6" style="font-size: 30px;"></i>
+			<strong class="mr-auto">&nbsp;Guardado Exitosamente</strong>
+			<button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+				<span data-aos="fade-down" class="text-white" aria-hidden="true">&times;</span>
+			</button>
+		</div>
+	</div>
+</div>
+
+<!-- ------------------------------------------------------------------------------------------------------- -->
+<!-- TEMPLATE TOASTR SEND -->
+<div th:fragment="toostSend">
+	<!-- TOASTR -->
+	<div id="toastSend" class="toast text-white shadow-lg" role="alert" aria-live="assertive" aria-atomic="true"
+		style="position: absolute; z-index: 100; right: 3%; top: 12%; color: #4AAD91;">
+		<div data-aos="fade-right" class="toast-header text-white p-3"
+			style="background-color: #145342; border-radius: 5px;">
+			<i data-aos="fade-down" class="fa-solid fa-floppy-disk rounded mr-2 fs-6" style="font-size: 30px;"></i>
+			<strong class="mr-auto">&nbsp;Enviado Exitosamente</strong>
+			<button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+				<span data-aos="fade-down" class="text-white" aria-hidden="true">&times;</span>
+			</button>
+		</div>
+	</div>
+</div>
+
+<!-- ------------------------------------------------------------------------------------------------------- -->
+<!-- TEMPLATE TOASTR DELETE -->
+<div th:fragment="toostDelete">
+	<!-- TOASTR -->
+	<div id="toastDelete" class="toast text-white shadow-lg" role="alert" aria-live="assertive" aria-atomic="true"
+		style="position: absolute; z-index: 100; right: 3%; top: 12%; color: #4AAD91;">
+		<div data-aos="fade-right" class="toast-header text-white p-3"
+			style="background-color: #DC3545; border-radius: 5px;">
+			<i data-aos="fade-down" class="fa-solid fa-trash rounded mr-2 fs-6" style="font-size: 30px;"></i>
+			<strong class="mr-auto">&nbsp;Eliminado Exitosamente</strong>
+			<button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+				<span data-aos="fade-down" class="text-white" aria-hidden="true">&times;</span>
+			</button>
+		</div>
+	</div>
+</div>
+
+<!-- ------------------------------------------------------------------------------------------------------- -->
+<!-- TEMPLATE TOASTR Welcome -->
+<div th:fragment="toostWelcome">
+	<!-- TOASTR -->
+	<div id="toastWelcome" class="toast text-white shadow-lg" role="alert" aria-live="assertive" aria-atomic="true"
+		style="position: absolute; z-index: 100; right: 1%; top: 4%; color: #4AAD91; width: 200px;">
+		<div data-aos="fade-right" class="toast-header text-white p-3"
+			style="background-color: #FFB100; border-radius: 5px;">
+			<strong class="mr-auto text-uppercase text-center">¡Bienvenido!</strong>
+			<i data-aos="fade-down" class="fa-solid fa-house-chimney rounded mr-2 fs-6" style="font-size: 30px;"></i>
+		</div>
+	</div>
+</div>
+
+<!-- ------------------------------------------------------------------------------------------------------- -->
+<!-- TEMPLATE TOASTR ERROR -->
+<div th:fragment="toostError">
+	<!-- TOASTR -->
+	<div id="toastError" class="toast text-white shadow-lg" role="alert" aria-live="assertive" aria-atomic="true"
+		style="position: absolute; z-index: 100; right: 3%; top: 12%; color: #4AAD91;">
+		<div data-aos="fade-right" class="toast-header text-white p-3"
+			style="background-color: #DC3545; border-radius: 5px;">
+			<i data-aos="fade-down" class="fa-solid fa-circle-exclamation rounded mr-2 fs-6"
+				style="font-size: 30px;"></i>
+			<strong class="mr-auto">&nbsp;Lo Sentimos, Ocurrió un Error</strong>
+			<button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+				<span data-aos="fade-down" class="text-white" aria-hidden="true">&times;</span>
+			</button>
+		</div>
+	</div>
+</div>

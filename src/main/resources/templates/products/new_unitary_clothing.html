@@ -1,0 +1,210 @@
+<!-- HTML -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<!-- HEAD -->
+
+<head th:include="/template_admin.html::headIndex"></head>
+
+<!-- BODY -->
+
+<body id="page-top">
+
+	<!-- SPINNER -->
+	<div th:include="/template_admin.html::spinner"></div>
+
+	<!-- Page Wrapper -->
+	<div id="wrapper">
+
+		<!-- SIDEBAR -->
+		<div th:include="/template_admin.html::sidebar"></div>
+
+		<!-- Content Wrapper -->
+		<div id="content-wrapper" class="d-flex flex-column">
+
+			<!-- Main Content -->
+			<div id="content">
+
+				<!-- HEADER -->
+				<div th:include="/template_admin.html::header"></div>
+
+				<!-- Begin Page Content -->
+				<div class="container-fluid">
+
+					<!-- Page Heading -->
+					<h1 class="h3 mb-2 text-gray-800">Prendas Unitarias</h1>
+					<!-- ! CAMBIAR -->
+
+					<!-- DataTales Example -->
+					<div class="card shadow mb-4" data-aos="zoom-in-up">
+						<div class="card-header py-3">
+							<h6 class="m-0 font-weight-bold text-primary">Agregar Prenda
+								Unitaria</h6>
+							<a th:href="@{/product/all/unitary}" class="btn btn-outline-dark my-2">Regresar</a>
+						</div>
+
+						<div class="card-body pdInput">
+							<form class="user row" method="post" enctype="multipart/form-data"
+              					th:action="@{/product/save/unitary}"
+              					th:object="${products}">
+              					
+              					<input type="hidden" name="productId" th:field="*{productId}"/>
+              					
+								<div class="col-12">
+									<label class="custom-control" for="customCheck">Nombre
+										<span style="color: red;">*</span>
+									</label>
+									<div class="form-group">
+										<input type="text" class="form-control " name="productName" th:field="*{productName}"
+											id="exampleInputEmail" aria-describedby="emailHelp"
+											placeholder="Nombre de Prenda" required>
+									</div>
+								</div>
+
+								<div class="col-6">
+									<label class="custom-control" for="customCheck">Categoría
+										<span style="color: red;">*</span>
+									</label>
+									<div class="form-group">
+										<select required class="form-control form-control " id="category" th:field="*{category.categoryId}">
+											<option value="">-- Seleccione --</option>
+											<option th:each="category : ${categories}"
+												th:value="${category.categoryId}" th:text="${category.categoryName}">
+											</option>
+										</select>
+									</div>
+								</div>
+
+								<div class="col-6">
+									<label class="custom-control" for="customCheck">Cantidad
+										Prendas <span style="color: red;">*</span>
+									</label>
+									<div class="form-group">
+										<input required type="number" class="form-control " name="productQuantity" th:field="*{productQuantity}"
+											id="exampleInputEmail" aria-describedby="emailHelp"
+											placeholder="Cantidad de Prendas">
+									</div>
+								</div>
+
+								<div class="col-6">
+									<label class="custom-control" for="customCheck">Precio
+										Prenda Unitaria <span style="color: red;">*</span>
+									</label>
+									<div class="form-group">
+										<input required type="number" class="form-control " name="unitPrice" th:field="*{unitPrice}"
+											id="exampleInputEmail" aria-describedby="emailHelp"
+											placeholder="Precio Unitario">
+									</div>
+								</div>
+
+								<div class="col-6">
+									<label class="custom-control" for="customCheck">Género
+										<span style="color: red;">*</span>
+									</label>
+									<div class="form-group">
+										<select required class="form-contro form-control " id="genderProduct" th:field="*{genderProduct}">
+											<option value="">-- Seleccione --</option>
+											<option value="Hombre">Hombre</option>
+											<option value="Mujer">Mujer</option>
+											<option value="Nino">Niño</option>
+											<option value="Nina">Niña</option>
+											<option value="Unisex">Unisex</option>
+										</select>
+									</div>
+								</div>
+
+								<div class="col-6">
+									<label class="custom-control" for="customCheck">Costo<span
+										style="color: red;">*</span></label>
+									<div class="form-group">
+										<input required type="number" class="form-control " name="productPrice" th:field="*{productPrice}"
+											id="exampleInputEmail" aria-describedby="emailHelp"
+											placeholder="Costo de la Prenda">
+									</div>
+								</div>
+
+								<div class="col-6">
+									<label class="custom-control" for="customCheck">Proveedor
+										<span style="color: red;">*</span>
+									</label>
+									<div class="form-group">
+										<select required class="form-control form-control " id="provider" th:field="*{provider.providerId}">
+											<option value="">-- Seleccione --</option>
+											<option th:each="provider : ${providers}"
+												th:value="${provider.providerId}" th:text="${provider.providerName}">
+											</option>
+										</select>
+									</div>
+								</div>
+
+								<div class="col-12">
+									<label class="custom-control" for="customCheck">Descripción
+										<span style="color: red;">*</span>
+									</label>
+									<div class="form-group">
+										<input required type="text" class="form-control " name="productDescription" th:field="*{productDescription}"
+											id="exampleInputEmail" aria-describedby="emailHelp"
+											placeholder="Descripción de la Prenda">
+									</div>
+								</div>
+
+								<button type="submit" class="btn btn-user btn-block btn-outline-success">Añadir</button>
+							</form>
+						</div>
+
+					</div>
+
+				</div>
+				<!-- /.container-fluid -->
+
+			</div>
+			<!-- End of Main Content -->
+
+			<!-- FOOTER -->
+			<div th:include="/template_admin.html::footer"></div>
+
+		</div>
+		<!-- End of Content Wrapper -->
+
+	</div>
+	<!-- End of Page Wrapper -->
+
+	<!-- Scroll to Top Button-->
+	<a class="scroll-to-top rounded" href="#page-top"> <i class="fas fa-angle-up"></i>
+	</a>
+
+	<!-- Logout Modal-->
+	<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">¿Seguro que
+						Desea Eliminarlo?</h5>
+					<button class="close" type="button" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">×</span>
+					</button>
+				</div>
+				<div class="modal-body">Estás apunto de borrar un Usuario</div>
+				<!-- !meter id -->
+				<div class="modal-footer">
+					<button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+					<a class="btn btn-primary" href="login.html">Aceptar</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- SCRPIPTS -->
+	<div th:include="/template_admin.html::scripts"></div>
+
+	<script>
+		AOS.init({
+			offset: -500,
+			once: true
+		});
+	</script>
+
+</body>
+
+</html>

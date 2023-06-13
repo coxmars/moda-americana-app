@@ -1,0 +1,50 @@
+<!-- HTML -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<!-- HEAD -->
+<head th:include="/template_admin.html::head"></head>
+
+<!-- BODY -->
+<body style="background-color: #F8F8F8;">
+
+	<!-- SPINNER -->
+	<div th:include="/template_admin.html::spinner"></div>
+
+	<!-- CONTAINER -->
+	<div class="container">
+
+		<!-- Outer Row -->
+		<div class="row justify-content-center">
+
+			<div class="col-xl-10 col-lg-12 col-md-9">
+
+				<div class="card o-hidden border-0 shadow-lg my-5">
+					<div class="card-body p-0">
+						<!-- Nested Row within Card Body -->
+						<div class="row">
+							<a th:href="@{/}" class="col-lg-6 d-none d-lg-block"><img
+								style="background-position: center; background-size: cover;"
+								src="./img/imgVerifySuccess.webp" alt="imgLogin"></a>
+							<div class="col-lg-6">
+								<div class="p-5" style="margin: 0 auto;">
+									<div class="text-center">
+										<h1 class="h4 text-gray-900 mb-4">[[#{h1.mensaje.error.verificacion}]]</h1>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<!-- SCRPIPTS -->
+	<div th:include="/template_admin.html::scripts"></div>
+
+</body>
+</html>

@@ -1,0 +1,288 @@
+<!-- HTML -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<!-- HEAD -->
+
+<head th:include="/template_admin.html::headIndex"></head>
+
+<!-- BODY -->
+
+<body id="page-top" onload="tamanoAncho()">
+
+	<!-- SPINNER -->
+	<div th:include="/template_admin.html::spinner"></div>
+
+	<!-- Page Wrapper -->
+	<div id="wrapper">
+
+		<!-- SIDEBAR -->
+		<div th:include="/template_admin.html::sidebar"></div>
+
+		<!-- Content Wrapper -->
+		<div id="content-wrapper" class="d-flex flex-column">
+
+			<!-- Main Content -->
+			<div id="content">
+
+				<!-- HEADER -->
+				<div th:include="/template_admin.html::header"></div>
+
+				<!-- Begin Page Content -->
+				<div class="container-fluid">
+
+					<!-- Page Heading -->
+					<h1 class="h3 mb-2 text-gray-800">Ventas</h1>
+					<!-- ! CAMBIAR -->
+
+					<!-- DataTales Example -->
+					<div class="card shadow mb-4" data-aos="zoom-in-up">
+						<div class="card-header py-3">
+							<h6 class="m-0 font-weight-bold text-primary">Agregar Venta</h6>
+							<!-- ! CAMBIAR -->
+							<div class="d-flex justify-content-end mr-2" id="header">
+
+								<div class="row mt-2">
+									<div class="col-12">
+										<h6 class="mb-0">
+											<span class="font-weight-bold">$1</span> = ₡<span
+												id="dolar">Cargando...</span>
+										</h6>
+									</div>
+									<div class="col-12">
+										<h6 class="mb-0">
+											<span class="font-weight-bold">€1</span> = ₡<span
+												id="euro">Cargando...</span>
+										</h6>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="contenedorBtn">
+										<div class="w-100">
+											<a th:href="@{/new_user}" class="btn btn-outline-success my-2 w-100">Agregar
+												Usuario</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="contenedorVenta d-flex p-xl-4">
+							<div class="card-body col-12 pdInput wd-100 p-sm-3" id="venta">
+								<form class="user row" id="formAdd">
+
+									<div class="col-6">
+										<label class="custom-control" for="customCheck">Monto
+											<span style="color: red;">*</span>
+										</label>
+										<div class="form-group">
+											<input required type="number" class="form-control " id="montoAdd"
+												aria-describedby="emailHelp" placeholder="Ingrese el Monto" min="100">
+										</div>
+									</div>
+
+									<div class="col-6">
+										<label class="custom-control" for="customCheck">Cantidad
+											Prendas <span style="color: red;">*</span>
+										</label>
+										<div class="form-group">
+											<input required type="number" class="form-control " id="cantidadAdd"
+												aria-describedby="emailHelp" placeholder="Ingrese la Cantidad" min="1">
+										</div>
+									</div>
+
+									<!-- !ORDENAR ALFABETICAMENTE -->
+									<div class="col-12">
+										<label class="custom-control" for="customCheck">Producto
+											<span style="color: red;">*</span>
+										</label>
+										<div class="form-group">
+											<select required class="form-control form-control" sort="alphabetic"
+												id="typeAdd">
+												<option value="">-- Seleccione --</option>
+												<option value="Abrigos">Abrigos</option>
+												<option value="Vestidos">Vestidos</option>
+												<option value="Camisas">Camisas</option>
+												<option value="Joggers">Joggers</option>
+												<option value="Sabanas">Sabanas</option>
+											</select>
+										</div>
+									</div>
+
+									<button id="btnAdd" class="btn p-2 btn-user btn-block btn-outline-success">
+										Añadir </button>
+								</form>
+							</div>
+
+							<div class="card-body col-12 col-md-4 wd-100 h-100" id="factura">
+								<div class="card cardVenta">
+									<div class="headerCard">
+										<h5 class="text-center font-weight-bold mb-0 tituloFactura">
+											Factura</h5>
+									</div>
+
+									<hr>
+									<div class="copyright text-center my-auto font-weight-bold d-flex flex-column mt-2"
+										id="contentAdd">
+									</div>
+
+									<div class="col-12">
+
+										<label class="custom-control" for="customCheck">Tipo
+											de Pago <span style="color: red;">*</span>
+										</label>
+										<div class="form-group">
+											<select required class="form-control form-control" sort="alphabetic"
+												id="kind">
+												<option value="">-- Seleccione --</option>
+												<option value="Efectivo">Efectivo</option>
+												<option value="Tarjeta">Tarjeta</option>
+												<option value="Sinpe">Sinpe Móvil</option>
+											</select>
+										</div>
+
+										<div id="pago" class="d-none">
+											<label class="custom-control" for="customCheck">El Cliente Paga Con <span
+													style="color: red;">*</span>
+											</label>
+											<div class="form-group">
+												<input required type="number" class="form-control " id="client"
+													aria-describedby="emailHelp" placeholder="Ingrese el Monto">
+											</div>
+										</div>
+										<label class="custom-control" for="customCheck">Clientes</label>
+										<div class="form-group">
+											<select required class="form-control form-control " id="clientS"
+												sort="alphabetic">
+												<option value="Cliente no Frecuente">-- Cliente no Frecuente --</option>
+												<option value="Juan Vargas">Juan Vargas</option>
+												<option value="Marco Araya">Marco Araya</option>
+												<option value="Sharon Vargas">Sharon Vargas</option>
+												<option value="Kike Sanchez">Kike Sanchez</option>
+											</select>
+										</div>
+										<div class="row">
+											<div class="col-6">
+												<label style="font-weight: 800; padding: 0; margin: 0 !important;"
+													class="custom-control" for="customCheck">Total Compra: <span
+														id="total" style="font-weight: 500;"></span></label>
+											</div>
+										</div>
+										<div class="w-100">
+											<button id="finish" data-toggle="modal" data-target="#confirmModal"
+												class="btn btn-outline-success my-2 w-100">Finalizar</button>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+
+						<div class="card-body pdInput wd-100 pt-0" id="venta">
+							<div class="card">
+								<div class="table-responsive">
+									<table class="table table-bordered" width="100%" cellspacing="0" id="tableAdd">
+										<thead>
+											<tr>
+												<th>Producto</th>
+												<th>Monto</th>
+												<th>Cantidad</th>
+												<th>Total</th>
+												<th>Borrar</th>
+											</tr>
+										</thead>
+										<tbody>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+				<!-- /.container-fluid -->
+
+				<!-- Confirm Modal-->
+				<div class="modal fade" id="confirmModal" tabindex="-1" role="dialog"
+					aria-labelledby="exampleModalLabel" aria-hidden="true">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header d-flex justify-content-center">
+								<h5 class="modal-title" id="exampleModalLabel">¡Último Paso!</h5>
+							</div>
+							<div class="modal-body">
+								<div class="col-12">
+									<div class="row">
+										<div class="col-6">
+											<label style="font-weight: 800;" class="custom-control"
+												for="customCheck">Total Compra: <span id="totalModal"
+													style="font-weight: 500;"></span></label>
+										</div>
+
+										<div class="col-6 d-none" id="vuel">
+											<label style="font-weight: 800;" class="custom-control"
+												for="customCheck">Vuelto: <span id="vuelto"
+													style="font-weight: 500;"></span></label>
+										</div>
+
+										<div class="col-6">
+											<label style="font-weight: 800;" class="custom-control"
+												for="customCheck">Tipo de Pago: <span id="typeP"
+													style="font-weight: 500;"></span></label>
+										</div>
+
+										<div class="col-6">
+											<label style="font-weight: 800;" class="custom-control"
+												for="customCheck">Cliente: <span id="cli"
+													style="font-weight: 500;"></span></label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="modal-footer">
+
+								<!-- ENVIAR TODA LA DATA DE LA FACTURA HACIA ACÁ  -->
+
+								<form class="mt-4" th:action="@{/logout}" method="post" id="formSale">
+									<!--
+										categorias, cantidad prendas, total venta, cliente, tipo de pago
+									 -->
+									<input class="d-none" id="saleFinish" name="total">
+									<input class="d-none" id="clientFinish" name="client">
+									<input class="d-none" id="kindFinish" name="kind">
+									
+									<button class="btn btn-outline-secondary" type="button"
+										data-dismiss="modal">Cancelar</button>
+									<input class="btn btn-outline-success" type="submit" value="Confirmar" id="finishSale" />
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<!-- End of Main Content -->
+
+			<!-- FOOTER -->
+			<div th:include="/template_admin.html::footer"></div>
+
+		</div>
+		<!-- End of Content Wrapper -->
+
+	</div>
+	<!-- End of Page Wrapper -->
+
+	<!-- Scroll to Top Button-->
+	<a class="scroll-to-top rounded" href="#page-top"> <i class="fas fa-angle-up"></i>
+	</a>
+
+	<!-- SCRPIPTS -->
+	<div th:include="/template_admin.html::scripts"></div>
+	<script src="/js/currency_convert.js"></script>
+	<script src="/js/sale.js"></script>
+
+</body>
+
+</html>

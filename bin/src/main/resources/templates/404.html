@@ -1,0 +1,30 @@
+<!-- HTML -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<!-- HEAD -->
+<head th:include="/template_admin.html::headIndex"></head>
+
+<!-- BODY -->
+<body id="page-top">
+
+	<!-- SPINNER -->
+	<div th:include="/template_admin.html::spinner"></div>
+
+	<!-- Begin Page Content -->
+	<div class="container-fluid w-100 d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+
+		<!-- 404 Error Text -->
+		<div class="text-center">
+			<div class="error mx-auto" data-text="404">404</div>
+			<p class="lead text-gray-800 mb-5">Page Not Found</p>
+		</div>
+
+	</div>
+	<!-- /.container-fluid -->
+
+	<!-- SCRPIPTS -->
+	<div th:include="/template_admin.html::scriptsIndex"></div>
+</body>
+
+</html>

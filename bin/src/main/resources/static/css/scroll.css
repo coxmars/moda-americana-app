@@ -1,0 +1,15 @@
+/* Cambia el color del fondo del scrollbar */
+::-webkit-scrollbar {
+	background-color: #F8F8F8;
+}
+
+/* Cambia el color del thumb (la barra que se mueve) */
+::-webkit-scrollbar-thumb {
+	background-color: #6799A3;
+	border-radius: 10px;
+}
+
+/* Cambia el color del thumb en su estado activo (cuando se hace click sobre él) */
+::-webkit-scrollbar-thumb:hover {
+	background-color: #6799A3;
+}

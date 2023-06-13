@@ -1,0 +1,128 @@
+<!-- HTML -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<!-- HEAD -->
+
+<head th:include="/template_admin.html::headWelcome"></head>
+
+<!-- BODY -->
+
+
+<body
+	style="overflow-x: hidden !important; background: center fixed url('img/slideshow/lista2.jpg'); background-repeat: no-repeat; background-size: cover;"
+	class="hidden">
+
+	<!-- SPINNER -->
+	<div th:include="/template_admin.html::spinner"></div>
+
+	<nav data-aos="fade-right" class="navbar navbar-expand-lg hiddenNav" style="top: 0 !important; position: relative;"
+		id="nav">
+		<div class="container">
+
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+				aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse " id="navbarNav">
+				<ul class="navbar-nav ms-auto ">
+					<li class="nav-item"><a class="nav-link" th:href="@{/}">[[#{li.Home}]]</a>
+					</li>
+
+					<li class="nav-item ms-3"><a class="nav-link custom-btn custom-border-btn custom-btn-bg-white btn"
+							th:href="@{/login}">[[#{li.Iniciar.Sesion}]]</a></li>
+
+					<li class="nav-item ms-3"><a class="nav-link custom-btn custom-border-btn custom-btn-bg-white btn"
+							th:href="@{/register}">[[#{li.Registrarse}]]</a></li>
+
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<main class="container col-xl-8">
+		<div class="container">
+			<form id="form" class="custom-form consulting-form bg-white shadow-lg my-5" th:action="@{/contact/save}"
+				data-aos="fade-up" th:object="${contact}" method="post"
+				style="background-color: #FFF; padding: 40px; border-radius: 10px;">
+				<div class="consulting-form-header d-flex align-items-center">
+					<h3 class="mb-4">[[#{h3.Contactanos}]]</h3>
+				</div>
+
+				<div class="consulting-form-body">
+					<div id="required" class="alert alert-danger text-center d-none"
+						style="padding: 3px !important; margin-bottom: 5px !important;" role="alert">
+						Todos los Espacios son Obligatorios
+					</div>
+
+					<div class="row">
+						<label style="text-align: start; max-width: 450px" class="custom-control"
+							for="customCheck">[[#{label.Asunto}]] <span style="color: red;">*</span></label>
+						<div class="col-lg-12 col-md-12 col-12">
+							<input type="text" th:field="*{topic}" id="volunteer-name" class="form-control"
+								placeholder="Asunto"  maxlength="100" minlength="3">
+						</div>
+					</div>
+
+					<div class="row">
+						<label style="text-align: start; max-width: 450px" class="custom-control"
+							for="customCheck">[[#{Contacto.label.Email}]] <span style="color: red;">*</span></label>
+
+						<div class="col-lg-12 col-md-12 col-12">
+							<input type="email" th:field="*{emailContact}" id="volunteer-email" class="form-control"
+								placeholder="Correo"  maxlength="100" minlength="5">
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-6">
+
+							<label style="text-align: start; max-width: 450px" class="custom-control"
+								for="customCheck">[[#{Contacto.label.FullName}]] <span
+									style="color: red;">*</span></label>
+
+							<div class="col-lg-12 col-md-12 col-12">
+								<input type="text" th:field="*{fullName}" id="volunteer-fullname" class="form-control"
+									placeholder="Nombre Completo"  maxlength="100" minlength="2">
+							</div>
+						</div>
+
+						<div class="col-6">
+
+							<label style="text-align: start; max-width: 450px" class="custom-control"
+								for="customCheck">[[#{Contacto.label.Phone}]] <span style="color: red;">*</span></label>
+
+							<div class="col-lg-12 col-md-12 col-12">
+								<input type="text" th:field="*{phoneContact}" id="volunteer-phone" class="form-control"
+									placeholder="Telefono"  maxlength="8" minlength="8">
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<label style="text-align: start; max-width: 450px;" class="custom-control"
+							for="customCheck">[[#{label.Descripcion}]]
+							<span style="color: red;">*</span>
+						</label>
+						<div class="col-lg-12 col-md-12 col-12">
+							<textarea th:field="*{description}" class="form-control" id="volunteer-message"
+								placeholder="Descripcion" maxlength="350" minlength="10"></textarea>
+						</div>
+					</div>
+
+					<div class="col-lg-12 col-md-12 col-12 mx-auto">
+						<button type="submit" name="guardar" class="form-control">[[#{button.Enviar}]]</button>
+					</div>
+				</div>
+			</form>
+		</div>
+
+	</main>
+
+	<!-- SCRPIPTS -->
+	<div th:include="/template_admin.html::scriptsWelcome"></div>
+
+</body>
+
+</html>

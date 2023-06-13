@@ -1,0 +1,302 @@
+<!-- HTML -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<!-- HEAD -->
+
+<head th:include="/template_admin.html::headIndex"></head>
+<!-- BODY -->
+
+<body id="page-top">
+
+	<!-- SPINNER -->
+	<div th:include="/template_admin.html::spinner"></div>
+
+	<!-- Page Wrapper -->
+	<div id="wrapper">
+
+		<!-- SIDEBAR -->
+		<div sec:authorize="hasRole('ADMIN')" th:include="/template_admin.html::sidebar"></div>
+
+		<!-- Content Wrapper -->
+		<div id="content-wrapper" class="d-flex flex-column">
+
+			<!-- Main Content -->
+			<div id="content">
+
+				<!-- HEADER -->
+				<div th:fragment="header">
+					<!-- Topbar -->
+					<nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+						<!-- Sidebar Toggle (Topbar) -->
+						<button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+							<i class="fa fa-bars"></i>
+						</button>
+
+						<div class="d-flex flex-column gap-4">
+							<p data-aos="fade-right" id="date"
+							   style="margin: 0 !important; font-style: italic !important; font-weight: 700 !important; font-size: 13px !important;">
+							</p>
+
+							<p data-aos="fade-right" id="time"
+							   style="margin: 0 !important; font-style: italic !important; font-weight: 700 !important; font-size: 13px !important;">
+							</p>
+						</div>
+
+						<!-- Topbar Navbar -->
+						<ul class="navbar-nav ml-auto">
+
+							</a> <!-- Dropdown - Messages -->
+								<div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+									 aria-labelledby="messagesDropdown"></div>
+							</li>
+
+							<div class="topbar-divider d-none d-sm-block"></div>
+
+							<!-- Nav Item - User Information -->
+							<li class="nav-item dropdown no-arrow"><a class="nav-link dropdown-toggle" href="#" id="userDropdown"
+																	  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <b><span
+									class="mr-2 d-none d-lg-inline text-gray-600 small text-uppercase"
+									th:text="${name}"></span></b> <img class="img-profile rounded-circle"
+																	   src="/img/undraw_profile.svg">
+							</a> <!-- Dropdown - User Information -->
+								<div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+									<a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal"> <i
+											class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+										Cerrar Sesión
+									</a>
+								</div>
+							</li>
+
+						</ul>
+
+					</nav>
+					<!-- End of Topbar -->
+
+				<!-- Begin Page Content -->
+				<div class="container-fluid">
+					<!-- DataTales Example -->
+					<form th:action="@{/user/profile/update/{id}(id=${user.getId()})}" th:object="${user}" method="POST" enctype="multipart/form-data">
+						<div class="card shadow mb-4" data-aos="zoom-in-up">
+							<div class="card-header py-3">
+								<div class="display flex justify content center">
+									<div class="col-12 d-none d-lg-block"
+										style="display: flex !important; justify-content: center !important; flex-direction: column; gap: 10px;">
+										<h2 style="text-align: center;" class="font-weight-bold my-3"><span th:text="${user.firstName + ' ' + user.lastName}"></span></h2>
+									</div>
+								</div>
+							</div>
+
+							<div class="card-body pdInput" >
+								<div class="form-check form-switch">
+									<input class="form-check-input" type="checkbox" onchange="removeReadOnly()" role="switch" id="flexSwitchCheckDefault">
+									<label class="form-check-label" for="flexSwitchCheckDefault">Actualizar datos</label>
+								</div>
+								<br>
+								<div class="row">
+									<div class="col-6">
+										<label class="custom-control" for="customCheck">Nombre
+											Completo</label>
+										<div class="form-group">
+											<input type="text" class="form-control form-control-user" id="inputFirstName"
+												aria-describedby="emailHelp" th:field="${user.firstName}"
+												readonly>
+										</div>
+									</div>
+
+									<div class="col-6">
+										<label class="custom-control" for="customCheck">Apellidos
+										</label>
+										<div class="form-group">
+											<input  readonly type="text" class="form-control form-control-user"
+												id="inputLastName" aria-describedby="emailHelp"
+												   th:field="${user.lastName}">
+										</div>
+									</div>
+
+									<div class="col-6">
+										<label class="custom-control" for="customCheck">Contraseña
+										</label>
+										<div class="input-group">
+											<input readonly type="password" class="form-control form-control-user"
+												   id="inputPassword" aria-describedby="emailHelp"
+												   placeholder="     ****************">
+											<div class="input-group-append">
+													<span class="input-group-text"><a
+															th:href="@{/user/update/password}"><i
+															class="fa-solid fa-pen-to-square"></i></a>
+											</div>
+
+										</div>
+									</div>
+									
+									<div class="col-6">
+										<label class="custom-control" for="customCheck">Promociones
+										</label>
+										<div class="form-group">
+											<select readonly th:field="*{promotion}"
+													class="form-contro form-control form-control-user"
+													id="inputPromotion">
+												<option th:value="1">Activo</option>
+												<option th:value="0">Inactivo</option>
+											</select>
+										</div>
+									</div>
+
+									<div class="col-12">
+										<label class="custom-control" for="customCheck">Correo
+											Electrónico </label>
+										<div class="form-group">
+											<input  readonly type="email" class="form-control form-control-user"
+												id="inputEmail" aria-describedby="emailHelp"
+												   th:field="${user.email}">
+										</div>
+									</div>
+
+									<div class="col-6">
+										<label class="custom-control" for="customCheck">Tipo
+											Identificación</label>
+										<div class="form-group">
+											<select  readonly="" th:field="*{identificationType}"
+													class="form-contro form-control form-control-user"
+													id="inputIdentificationType">
+												<option value="Cedula Nacional">Cédula Nacional</option>
+												<option value="Pasaporte">Pasaporte</option>
+											</select>
+										</div>
+									</div>
+
+									<div class="col-6">
+										<label class="custom-control" for="customCheck">Identificación
+										</label>
+										<div class="form-group">
+											<input  type="text" readonly
+													class="form-control form-control-user" id="inputIdentification"
+													aria-describedby="emailHelp" th:field="${user.identification}"
+													th:value="${user.identification}">
+										</div>
+									</div>
+
+									<div class="col-6">
+										<label class="custom-control" for="customCheck">Teléfono
+										</label>
+										<div class="form-group">
+											<input readonly type="number" class="form-control form-control-user"
+												id="inputPhone" aria-describedby="emailHelp"
+												   th:field="${user.phoneNumber}"
+												   th:value="${user.phoneNumber}">
+										</div>
+									</div>
+
+									<div class="col-6">
+										<label class="custom-control" for="customCheck">Género
+										</label>
+										<div class="form-group">
+											<select readonly th:field="*{gender}"
+													class="form-contro form-control form-control-user"
+													id="inputGender">
+												<option th:value="Mujer">Mujer</option>
+												<option th:value="Hombre">Hombre</option>
+											</select>
+										</div>
+									</div>
+								</div>
+
+								<div style="display: flex; flex-direction: column; gap: 15px; margin-top: 20px !important;">
+									<button type="submit" class="btn btn-outline-primary"><i
+											class="fa-solid fa-pen-to-square"></i>
+									</button>
+
+									<a href="#" data-toggle="modal" data-target="#deleteModal" class="btn btn-outline-danger"><i
+											class="fa-solid fa-trash"></i>
+									</a>
+
+								</div>
+							</div>
+
+						</div>
+
+					</form>
+				</div>
+				<!-- /.container-fluid -->
+
+			</div>
+			<!-- End of Main Content -->
+
+			<!-- FOOTER -->
+			<div th:include="/template_admin.html::footer"></div>
+
+		</div>
+		<!-- End of Content Wrapper -->
+
+	</div>
+	<!-- End of Page Wrapper -->
+
+	<!-- Scroll to Top Button-->
+	<a class="scroll-to-top rounded" href="#page-top"> <i class="fas fa-angle-up"></i>
+	</a>
+
+		<!-- Logout Modal-->
+		<!-- Delete Modal-->
+		<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+			 aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Desea Borrar su Usuario</h5>
+						<button class="close" type="button" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">×</span>
+						</button>
+					</div>
+					<div class="modal-body">Estás apunto de Borrar tu usuario</div>
+					<div class="modal-footer">
+						<form class="mt-4" th:action="@{/user/delete/{id}(id=${#authentication.getPrincipal().getUser().getId()})}" method="post">
+							<button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+							<input class="btn btn-primary" type="submit" value="Borrar Usuario" />
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+	<!-- Logout Modal-->
+		<!-- Logout Modal-->
+		<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+			 aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Desea Cerrar
+							Sesión</h5>
+						<button class="close" type="button" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">×</span>
+						</button>
+					</div>
+					<div class="modal-body">Estás apunto de Cerrar Sesión</div>
+					<div class="modal-footer">
+						<form class="mt-4" th:action="@{/logout}" method="post">
+							<button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+							<input class="btn btn-primary" type="submit" value="Cerrar Sesión" />
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	<!-- SCRPIPTS -->
+	<script src="/js/removeReadOnly.js"></script>
+	<div th:include="/template_admin.html::scripts"></div>
+
+	<script>
+		AOS.init({
+			offset: -500,
+			once: true
+		});
+	</script>
+
+</body>
+
+</html>

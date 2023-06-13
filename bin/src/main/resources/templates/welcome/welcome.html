@@ -1,0 +1,408 @@
+<!-- HTML -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<!-- HEAD -->
+
+<head th:include="/template_admin.html::headWelcome"></head>
+
+<!-- BODY -->
+
+<body style="overflow-x: hidden !important;" class="hidden">
+
+	<!-- SPINNER -->
+	<div th:include="/template_admin.html::spinner"></div>
+
+	<nav class="navbar navbar-expand-lg hiddenNav" style="top: 0 !important;" id="nav">
+		<div class="container">
+
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+				aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse " id="navbarNav">
+				<!-- ! CAMBIAR -->
+				<div style="display: flex; gap: 10px; margin-left: 15px;">
+					<a th:href="@{/?lang=es}">
+						<div data-aos="fade-down">
+							<img src="./img/espa.webp" alt="espanol" id="esp"
+								style="min-width: 40px; max-height: 25px;">
+						</div>
+					</a> <a th:href="@{/?lang=en}">
+						<div data-aos="fade-down">
+							<img src="./img/usas.webp" alt="ingles" id="usa" style="min-width: 40px; max-height: 25px;">
+						</div>
+					</a>
+				</div>
+				<ul class="navbar-nav ms-auto ">
+					<li class="nav-item"><a class="nav-link active" th:href="@{#}">[[#{li.Home}]]</a>
+					</li>
+
+					<li class="nav-item"><a class="nav-link" th:href="@{#intro-section}">[[#{li.Nosotros}]]</a></li>
+
+					<li class="nav-item"><a class="nav-link" th:href="@{#productos}">[[#{li.Productos}]]</a></li>
+
+					<li class="nav-item"><a class="nav-link" th:href="@{/form_contact}">[[#{li.Contacto}]]</a>
+					</li>
+
+					<li sec:authorize="!isAuthenticated()" class="nav-item ms-3"><a class="nav-link custom-btn custom-border-btn custom-btn-bg-white btn"
+							th:href="@{/login}">[[#{li.Iniciar.Sesion}]]</a></li>
+
+					<li sec:authorize="!isAuthenticated()" class="nav-item ms-3"><a class="nav-link custom-btn custom-border-btn custom-btn-bg-white btn"
+							th:href="@{/register}">[[#{li.Registrarse}]]</a></li>
+
+					<div sec:authorize="isAuthenticated()"><li class="nav-item ms-3"><a class="nav-link custom-btn custom-border-btn custom-btn-bg-white btn"
+																						th:href="@{/my_profile/{id}(id=${#authentication.getPrincipal().getUser().getId()})}">Perfil</a></li></div>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<main style="background-color: #F8F8F8 !important;">
+
+		<section class="hero-section hero-section-full-height d-flex justify-content-center align-items-center">
+			<div class="section-overlay"></div>
+
+			<div class="container">
+				<div class="row">
+
+					<div class="col-lg-7 col-12 text-center mx-auto">
+						<h1 class="cd-headline rotate-1 text-white mb-4 pb-2">
+							<span>Moda Americana</span> <span class="cd-words-wrapper">
+								<b class="is-visible">[[#{b.Precio.Unico}]]</b> <b>[[#{b.Calidad}]]</b>
+								<b>[[#{b.Comodidad}]]</b>
+							</span>
+						</h1>
+
+						<a class="custom-btn btn button button--atlas smoothscroll me-3" th:href="@{/form_contact}">
+							<span>[[#{span.Contactanos}]]</span>
+
+							<div class="marquee" aria-hidden="true">
+								<div class="marquee__inner">
+									<span>Contáctanos</span> <span>Contáctanos</span> <span>Contáctanos</span>
+									<span>Contáctanos</span>
+								</div>
+							</div>
+						</a>
+					</div>
+
+				</div>
+			</div>
+
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+				<path fill="#F8F8F8" fill-opacity="1"
+					d="M0,224L40,229.3C80,235,160,245,240,250.7C320,256,400,256,480,240C560,224,640,192,720,176C800,160,880,160,960,138.7C1040,117,1120,75,1200,80C1280,85,1360,139,1400,165.3L1440,192L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z">
+				</path>
+			</svg>
+		</section>
+
+
+		<section class="intro-section" id="intro-section">
+			<div class="container">
+				<div class="row justify-content-lg-center align-items-center">
+
+					<h1 class="cd-headline rotate-1 text-white mb-4 pb-2" style="color: #FFB100 !important;">
+						[[#{h1.Nosotros}]]</h1>
+
+					<div class="nosotrosC">
+						<div class="shadow-lg col-lg-6 col-12 contenedorNos" data-aos="fade-right"
+							style="background-color: #FFF; padding: 40px; border-radius: 10px; margin-top: 60px;">
+							<h2 class="mb-4">
+								[[#{h2.Categorias.Productos.Parte1}]] <br> [[#{h2.Categorias.Productos.Parte2}]]
+							</h2>
+
+							<p>
+								[[#{p.texto.Parte1}]] <a href="#">Moda Americana</a> [[#{p.texto.Parte2}]]
+							</p>
+							<p>
+								[[#{p.texto2.Parte1}]] <strong> [[#{p.texto2.Strong}]] </strong> [[#{p.texto2.Parte2}]]
+							</p>
+						</div>
+
+						<div class="shadow-lg col-lg-6 col-12 contenedorNos" data-aos="zoom-in-up"
+							style="background-color: #FFF; padding: 40px; border-radius: 10px; margin-top: 60px;">
+							<h2 class="mb-4">
+								[[#{h2.EstadoRopa.Parte1}]] <br> [[#{h2.EstadoRopa.Parte2}]]
+							</h2>
+
+							<p>
+								[[#{p.texto3.Parte1}]] <a href="#">[[#{p.texto3.ParteResaltada}]]</a>
+								[[#{p.texto3.Parte2}]]
+							</p>
+							<p>
+								[[#{p.texto4.Parte1}]] <strong> [[#{p.texto4.ParteResaltada}]]</strong>!
+							</p>
+						</div>
+					</div>
+
+					<iframe data-aos="fade-up" class="shadow-lg"
+						src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d981.3328788269154!2d-84.82293027086469!3d10.315331618968719!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa01bd1226376c1%3A0x8b4202725d9816bf!2sCentro%20Comercial%20Monteverde!5e0!3m2!1ses-419!2scr!4v1670106413752!5m2!1ses-419!2scr"
+						width="600" height="450" style="height: 390px; margin-top: 60px; border-radius: 10px;"
+						allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+					<br> <br> <br> <br>
+
+					<div class="nosotrosC">
+						<div data-aos="fade-right" class="col-lg-6 col-12 contenedorNos shadow-lg"
+							style="background-color: #FFF; padding: 40px; border-radius: 10px; margin-top: 60px;">
+							<h2 class="mb-4">
+								[[#{h2.Ropa.de.Calidad.Parte1}]] <br> [[#{h2.Ropa.de.Calidad.Parte2}]]
+							</h2>
+
+							<p>
+								[[#{p.texto5.Parte1}]] <a href="#">Moda Americana</a> [[#{p.texto5.Parte2}]]
+							</p>
+							<p>
+								[[#{p.texto6.Parte1}]] <strong> [[#{p.texto6.ParteResaltada}]] </strong>
+								[[#{p.texto6.Parte2}]] <a href="contact.html" target="_blank">
+									[[#{p.texto6.ParteContactarnos}]]</a>
+							</p>
+						</div>
+
+						<div data-aos="zoom-in-up" class="col-lg-6 col-12 contenedorNos shadow-lg"
+							style="background-color: #FFF; padding: 40px; border-radius: 10px; height: 390px; margin-top: 60px;">
+							<h2 class="mb-4">[[#{h2.Ubicacion}]]</h2>
+
+							<p>
+								[[#{p.Ubicacion.Parte1}]] <a
+									href="https://www.google.com/maps/place/Provincia+de+Puntarenas,+Monteverde/@10.2855162,-84.888528,12z/data=!3m1!4b1!4m5!3m4!1s0x8fa0190abebeddc9:0x6655a93f1b3ad827!8m2!3d10.2749682!4d-84.8255097">Monteverde</a>
+								[[#{p.Ubicacion.Parte2}]]
+							</p>
+							<p>
+								[[#{p.texto7.Parte1}]] <strong> [[#{p.texto7.ParteResaltada}]] </strong>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<br> <br>
+
+		<section class="galery d-none d-sm-flex" id="galery">
+			<img src="./img/1.webp" alt="1">
+			<img src="./img/2.webp" alt="2">
+			<img src="./img/3.webp" alt="3">
+			<img src="./img/4.webp" alt="4">
+		</section>
+
+		<br><br>
+
+		<section class="services-section section-padding section-bg py-0" id="services-section"
+			style="background-color: #F8F8F8 !important;">
+			<div class="container-fluid">
+				<div class="row">
+
+					<div class="col-lg-12 col-12" id="productos">
+						<h2 class="mb-4 ml-4" style="margin-left: 5rem;">[[#{h2.Productos}]]</h2>
+					</div>
+					<!-- PRENDA -->
+					<div class="container">
+						<div class="row">
+							<div th:each="product, iteration : ${products}" class="col-12 col-sm-6"
+								th:if="${iteration.index lt 4}">
+								<div class="col-lg-12 col-12" style="margin-bottom: 20px;" data-aos="fade-up">
+									<div class="services-thumb mb-lg-0 shadow-sm">
+										<div class="row">
+											<div class="col-lg-5 col-md-5 col-12">
+												<div class="services-image-wrap">
+													<img src="./img/prenda3.png" class="services-image img-fluid"
+														alt="imagen prenda">
+
+													<div class="services-icon-wrap">
+														<div class="d-flex justify-content-end align-items-center">
+															<p class="text-white mb-0 text-right">₡
+															<p class="text-white mb-0 text-right"
+																th:text="${product.unitPrice}">
+																<i class="bi-cash me-2"></i>
+															</p>
+															</p>
+														</div>
+													</div>
+												</div>
+											</div>
+
+											<div class="col-lg-7 col-md-7 col-12 d-flex align-items-center">
+												<div class="services-info mt-4 mt-lg-0 mt-md-0">
+													<h4 class="services-title mb-1 mb-lg-2">
+														<a style="color: #6799A3;" th:text="${product.productName}"></a>
+													</h4>
+
+													<p th:text="${product.productDescription}"></p>
+
+													<div class="d-flex flex-wrap align-items-center"></div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- PRENDA -->
+				</div>
+
+				<div class="d-flex justify-content-end">
+					<a th:href="@{/all_clothes}" class="btn btn-outline-dark">Ver Todos</a>
+				</div>
+		</section>
+
+		<br> <br>
+
+		<div class="imgB">
+			<div class="h2Img" data-aos="flip-left">
+				<h2 class="h2texto">Moda Americana</h2>
+			</div>
+		</div>
+
+		<br> <br>
+
+		<section class="team-section section-padding section-bg">
+			<div class="container">
+				<div class="row shadow-lg" style="background-color: #FFF; padding: 40px; border-radius: 10px;">
+
+					<div class="col-lg-12 col-12">
+						<h2 class="mb-4">[[#{h2.Personal}]]</h2>
+					</div>
+
+					<div class="col-lg-3 col-md-6 col-12 mb-lg-0 mb-md-5" data-aos="zoom-in-up">
+						<img src="./img/teams/young-cleaning-man-wearing-casual-clothes.jpg"
+							class="team-image img-fluid">
+					</div>
+
+					<div
+						class="col-lg-3 col-md-6 col-12 d-flex justify-content-lg-center mt-4 mt-lg-0 mt-md-0 mb-5 mb-lg-0">
+						<div class="team-info mx-auto mx-lg-0" data-aos="fade-right">
+							<h4 class="mb-2">Josseth Vargas</h4>
+
+							<p>[[#{p.Ayudante}]]</p>
+
+							<div class="border-top mt-3 pt-3">
+								<p class="d-flex mb-0">
+									<i class="bi-whatsapp me-2"></i> <a href="https://wa.me/+50664033944">
+										6403-3944 </a>
+								</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-lg-3 col-md-6 col-12" data-aos="zoom-in-up">
+						<img src="./img/teams/happy-young-woman-wiping-kitchen-counter-wearing-yellow-gloves.jpg"
+							class="team-image img-fluid">
+					</div>
+
+					<div class="col-lg-3 col-md-6 col-12 d-flex justify-content-lg-center mt-4 mt-lg-0 mt-md-0">
+						<div class="team-info mx-auto mx-lg-0" data-aos="zoom-in-up">
+							<h4 class="mb-2">Sharon Vargas</h4>
+
+							<p>[[#{p.Propietaria.Negocio}]]</p>
+
+							<div class="border-top mt-3 pt-3">
+								<p class="d-flex mb-0">
+									<i class="bi-whatsapp me-2"></i> <a href="https://wa.me/+50687341275">
+										8734-1275 </a>
+								</p>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</section>
+
+		<br> <br>
+
+	</main>
+
+	<footer class="site-footer">
+		<div class="container">
+			<div class="row">
+
+				<div class="col-lg-12 col-12 d-flex align-items-center mb-4 pb-2">
+					<div>
+						<img src="./img/logo.jpg" class="logo img-fluid" alt="">
+					</div>
+
+					<ul class="footer-menu d-flex flex-wrap ms-5">
+						<li class="footer-menu-item"><a th:href="@{#}" class="footer-menu-link">Home</a></li>
+
+						<li class="footer-menu-item"><a th:href="@{#intro-section}"
+								class="footer-menu-link">[[#{footer.Nosotros}]]</a></li>
+
+						<li class="footer-menu-item"><a th:href="@{#productos}"
+								class="footer-menu-link">[[#{footer.Productos}]]</a></li>
+
+						<li class="footer-menu-item"><a th:href="@{/form_contact}"
+								class="footer-menu-link">[[#{footer.Contacto}]]</a></li>
+					</ul>
+				</div>
+
+				<div class="contenedorFooterInfo" data-aos="fade-right">
+
+					<div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0 mb-md-0">
+						<h5 class="colorAmarillo site-footer-title mb-3">[[#{h5.Tienda}]]</h5>
+
+						<p class="text-white d-flex mt-3 mb-2">
+							<i class="bi-geo-alt-fill me-2"></i> Costa Rica, Puntarenas,
+							Monteverde, Centro Comercial
+						</p>
+
+						<p class="text-white d-flex mb-2">
+							<i class="bi-telephone-fill me-2"></i> <a href="tel: 110-220-9800" class="site-footer-link">
+								8734-1275
+							</a>
+						</p>
+
+						<ul class="social-icon mt-4">
+
+							<li class="social-icon-item"><a
+									href="https://www.facebook.com/profile.php?id=100063619537678"
+									class="social-icon-link button button--skoll"> <span></span>
+									<span class="bi-facebook"></span>
+								</a></li>
+
+							<li class="social-icon-item"><a href="https://wa.me/+50687341275"
+									class="social-icon-link button button--skoll"> <span></span>
+									<span class="bi-whatsapp"></span>
+								</a></li>
+						</ul>
+					</div>
+
+					<div class="col-lg-3 col-md-6 col-6 mt-3 mt-lg-0 mt-md-0" data-aos="zoom-in-up">
+						<div class="featured-block">
+							<h5 class="colorAmarillo text-white mb-3">[[#{h5.Horario.Servicio}]]</h5>
+
+							<strong class="d-block text-white mb-1">[[#{strong.LapsodeDias}]]</strong>
+
+							<p class="text-white mb-3">11:00 AM - 7:00 PM</p>
+
+							<strong class="d-block text-white mb-1">[[#{strong.Domingos}]]</strong>
+
+							<p class="text-white mb-0">11:00 AM - 5:30 PM</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="site-footer-bottom">
+			<div class="container">
+				<div class="row">
+					<div class="container my-auto">
+						<div class="copyright text-center my-auto">
+							<span>Copyright &copy; Moda Americana - <span id="rights"></span></span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<!-- SCRPIPTS -->
+	<div th:include="/template_admin.html::scriptsWelcome"></div>
+
+</body>
+
+</html>

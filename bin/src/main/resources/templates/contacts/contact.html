@@ -1,0 +1,140 @@
+<!-- HTML -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<!-- HEAD -->
+<head th:include="/template_admin.html::headIndex"></head>
+
+<!-- BODY -->
+<body id="page-top">
+
+	<!-- SPINNER -->
+	<div th:include="/template_admin.html::spinner"></div>
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- SIDEBAR -->
+		<div th:include="/template_admin.html::sidebar"></div>
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+			
+			<!-- TOAST -->
+			<div th:include="/template_admin.html::toostDelete"></div>
+
+			<p class="d-none" th:text="${state}" id="m"></p>
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- HEADER -->
+				<div th:include="/template_admin.html::header"></div>
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-800">Mensajes de Contacto</h1>
+                    <!-- ! CAMBIAR -->
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4" data-aos="zoom-in-up">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Mensajes de Contacto Registrados</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTableContact" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                        	<th>#</th>
+                                            <th>Asunto</th>
+                                            <th>Descripción</th>
+                                            <th>Usuario</th>
+                                            <th>Correo</th>
+                                            <th>Teléfono</th>
+                                            <th>Fecha</th>
+                                            <th>Borrar</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr th:each="contact: ${contacts}">
+                                            <td th:text="${contact.idContact}">#</td>
+											<td th:text="${contact.topic}">Topic</td>
+											<td th:text="${contact.description}">Description</td>
+											<td th:text="${contact.fullName}">FullName</td>
+											<td th:text="${contact.emailContact}">Email</td>
+											<td th:text="${contact.phoneContact}">Phoe Number</td>
+											<td th:text="${contact.dateContact}">Date</td>
+                                            <td>
+												<a data-target="#deleteModal" th:href="@{#}" data-toggle="modal"
+													th:attr="data-message-id=${contact.idContact}"
+													class="btn btn-outline-danger w-100">
+
+													<i class="fa-solid fa-trash"></i>
+												</a>
+											</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- FOOTER -->
+			<div th:include="/template_admin.html::footer"></div>
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">¿Seguro que Desea Eliminarlo?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Estás apunto de borrar un Mensaje de Contacto</div> 
+                <!-- !meter id -->
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                    <a class="btn btn-primary" id="deleteLink">Aceptar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRPIPTS -->
+	<div th:include="/template_admin.html::scripts"></div>
+	
+	<script src="/js/delete_modal/delete_message.js"></script>
+	
+    <script>
+        AOS.init({
+            offset: -500,
+            once: true
+        });
+    </script>
+
+</body>
+
+</html>
