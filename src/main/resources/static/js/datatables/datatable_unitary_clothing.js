@@ -76,7 +76,7 @@ $(document).ready(function() {
 			{
 				extend: "print", filename: "Prendas Unitarias", text: "Imprimir", titleAttr: "Imprimir", className: "btn btn-dark px-2 mr-2 rounded",
 				exportOptions: {
-					columns: [1, 3, 4, 7, 8, 10]
+					columns: [1, 2, 3, 4, 5, 6]
 				}
 			}
 		],

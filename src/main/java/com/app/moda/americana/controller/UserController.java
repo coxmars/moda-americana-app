@@ -52,7 +52,7 @@ public class UserController {
 	@GetMapping("/404")
 		public String viewError(){
 			return "/404";
-		}
+	}
 
 	@GetMapping("/users")
 	public String viewUsers(Model model, Principal principal) {
@@ -144,13 +144,13 @@ public class UserController {
 		return siteURL.replace(request.getServletPath(), "");
 	}
 
-	@GetMapping("/user/update/password")
+	@GetMapping("/user/password")
 	public String viewupdatePassword(Model model) {
 		model.addAttribute("user", new User());
 		return "users/changePassword";
 	}
 
-	@PostMapping("/user/update/password/{id}")
+	@PostMapping("/user/password/{id}")
 	public String updatePassword(@PathVariable Long id, @ModelAttribute("user") User user) {
 		User userTmp = userService.getOne(id);
 		// String encodedPassword = passwordEncoder.encode(user.getPassword());
@@ -192,7 +192,7 @@ public class UserController {
 
 		return "redirect:/my_profile/" + id;
 	}
-	@PostMapping("/user/update/password/changePasswordSuccess/{id}")
+	@PostMapping("/user/password/changePasswordSuccess/{id}")
 	public String updatePasswordConfirm(@PathVariable Long id, @ModelAttribute("user") User user,
 			@RequestParam("newPassword") String newPassword,
 			@RequestParam("confirmnewPassword") String confirmnewPassword) {
